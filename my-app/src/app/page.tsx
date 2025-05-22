@@ -10,5 +10,10 @@ import { FaEyeSlash } from "react-icons/fa";
 import { Image } from "@heroui/image";
 
 export default function Home() {
-  return <main className="h-screen w-screen flex "></main>;
+  return (
+    <main className="max-h-screen max-w-screen flex bg-[--color-background]">
+      <input type="text" />
+      <input type="text" />
+    </main>
+  );
 }

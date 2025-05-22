@@ -16,7 +16,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>CrimsontideAI Panel v1.0.0</title>
-
         <link rel="icon" href="/favicon-32x32-bg-negro.png" />
         <meta name="description" content="Powered by CrimsontideAI" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
