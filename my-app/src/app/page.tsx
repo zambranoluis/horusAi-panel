@@ -24,7 +24,7 @@ export default function Home() {
     });
 
     if (res?.ok) {
-      router.push("/dashboard"); // Redirige al dashboard tras login exitoso
+      router.push("/home"); // Redirige al dashboard tras login exitoso
     } else {
       setError("Credentials do not match our records");
     }
