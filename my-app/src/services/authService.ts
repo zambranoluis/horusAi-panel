@@ -12,3 +12,19 @@ export const logoutUser = async () => {
     throw error;
   }
 };
+
+export const chechAdmin = async (email: string) => {
+  try {
+    const response = await axios.post(
+      `${BACKEND_URL}/auth/check-admin`,
+      { email: email },
+      {
+        withCredentials: true,
+      },
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
