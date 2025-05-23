@@ -12,7 +12,7 @@ export default function Navbar() {
       await logoutUser();
       signOut({ callbackUrl: "/" });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 

@@ -52,57 +52,73 @@ export default function Home() {
   };
 
   return (
-    <main className="max-h-screen max-w-screen flex flex-col items-center justify-center bg-[--color-background] px-4">
+    <main className="flex h-full w-full items-center justify-center bg-[--color-background]">
       {!isVerified ? (
         <form
           onSubmit={verifyAdmin}
-          className="w-full max-w-sm space-y-4 bg-white p-6 rounded-xl shadow-md"
+          className="shadowwhite shadowmd bg[url(/cardBG.webp)] relative flex h-full w-full flex-col items-center justify-center rounded-xl border bg-cover bg-center bg-no-repeat"
         >
-          <h2 className="text-xl font-bold text-center">Verify Admin Email</h2>
-          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-          <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring"
-            />
+          <div className="absolute h-full w-full bg-black/40"></div>
+          <div className="z-[10] flex flex-col gap-4">
+            <div className="flex items-center justify-center">
+              <h2 className="text-center text-xl font-bold drop-shadow-[0px_3px_3px_rgba(0,0,0,1)]">
+                Verify Admin
+              </h2>
+            </div>
+            <div className="flex">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="focusring border[var(--color-secondary)] w-full rounded-lg border bg-black/50 px-4 py-2 backdrop-blur-[2px] focus:border-[var(--color-secondary)] focus:outline-none"
+              />
+            </div>
+            <div className="bggreen-500 flex justify-center">
+              <button
+                type="submit"
+                className="rounded-lg bg-[var(--color-primary)] px-4 py-2 font-semibold hover:bg-[var(--color-secondary)]"
+                disabled={checkingAdmin}
+              >
+                {checkingAdmin ? "Checking..." : "Continue"}
+              </button>
+            </div>
+            <div className="bggreen-400 h-[40px] p-2">
+              {error ? (
+                <p className="text-center text-sm text-red-500">{error}</p>
+              ) : (
+                <p></p>
+              )}
+            </div>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800"
-            disabled={checkingAdmin}
-          >
-            {checkingAdmin ? "Checking..." : "Continue"}
-          </button>
         </form>
       ) : (
         <form
           onSubmit={handleLogin}
-          className="w-full max-w-sm space-y-4 bg-white p-6 rounded-xl shadow-md"
+          className="w-full max-w-sm space-y-4 rounded-xl bg-white p-6 shadow-md"
         >
-          <h2 className="text-xl font-bold text-center">Login</h2>
-          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+          <h2 className="text-center text-xl font-bold">Login</h2>
+          {error && (
+            <p className="0 text-center text-xs text-red-500">{error}</p>
+          )}
           <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
+            <label className="mb-1 block text-sm font-medium">Email</label>
             <input
               type="email"
               value={email}
               disabled
-              className="w-full px-4 py-2 border rounded-lg bg-gray-100"
+              className="w-full rounded-lg border bg-gray-100 px-4 py-2"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
+            <label className="mb-1 block text-sm font-medium">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring pr-10"
+                className="w-full rounded-lg border px-4 py-2 pr-10 focus:outline-none focus:ring"
               />
               <button
                 type="button"
@@ -115,7 +131,7 @@ export default function Home() {
           </div>
           <button
             type="submit"
-            className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800"
+            className="w-full rounded-lg bg-black py-2 text-white hover:bg-gray-800"
           >
             Log in
           </button>

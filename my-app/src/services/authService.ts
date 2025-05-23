@@ -8,7 +8,7 @@ export const logoutUser = async () => {
     });
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     throw error;
   }
 };
@@ -20,11 +20,11 @@ export const chechAdmin = async (email: string) => {
       { email: email },
       {
         withCredentials: true,
-      },
+      }
     );
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     throw error;
   }
 };

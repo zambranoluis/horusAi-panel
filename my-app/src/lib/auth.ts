@@ -73,12 +73,12 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid credentials");
         } catch (error: unknown) {
           if (axios.isAxiosError(error)) {
-            console.error(
+            console.log(
               "Authorization error:",
-              error.response?.data?.message || error.message,
+              error.response?.data?.message || error.message
             );
           } else if (error instanceof Error) {
-            console.error("Authorization error:", error.message);
+            console.log("Authorization error:", error.message);
           }
           throw new Error("Login failed");
         }

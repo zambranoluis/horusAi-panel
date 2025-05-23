@@ -36,9 +36,11 @@
 }
 
 html[data-theme="dark"] {
-  --color-shadow: #6e6e6e;
   --color-background: #010101;
   --color-background-shade: #272727;
+  --color-button-submit: #005fc4;
+  --color-button-submit-hover: #02346a;
+  --color-shadow: #6e6e6e;
   --color-border-dark: #313131;
   --color-border-medium: #555555;
   --color-border-light: #757575;
